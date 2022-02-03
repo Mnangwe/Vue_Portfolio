@@ -11,7 +11,7 @@
             <input type="email" name="email" id="" v-model="email" required>
         </div>
     </div>
-    <label>Message:</label>
+    <label>Message length:</label>
     <div class="message">
         <textarea name="message" id="" cols="" v-model="message" rows="5"></textarea>
     </div>
