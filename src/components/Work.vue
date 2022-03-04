@@ -1,91 +1,121 @@
 <template>
-<div class="row">
+<div class="row" v-if="projects">
+  
     <div class="cards-wrapper col-sm-6 col-md-4" v-for="project in projects" :key="project.id">
-        <div class="card" style="height: 400px; margin: 5px; text-align: left;">
+        <div class="card shadow-dark" style=" margin: 5px; text-align: left;">
+            <div class="project-image">
+              <img :src="project.image" class="card-img-top" :alt="project.title">
+            </div>
             
-            <img :src="require(`../assets/images/projects/${project.image}`)" class="card-img-top" alt="" height="250">
             <div class="info">
                 <h4>
                  <strong>{{project.title}}</strong> 
                   <hr>
                   </h4>
 
-            <p>
+            <!-- <p>
                 {{project.description}}
                 
             </p>
-            <hr>
-            <div class="links">
-               <a :href="project.netlify" class="button" title="Live Code" target="_blank"><i class="fa fa-eye"></i></a>
-              
-               <!-- <a :href="project.gitHub" class="coding" title="github" target="_blank"><i class="fa fa-github"></i></a> -->
-              
-            </div>
+            <hr> -->
+                <div class="links">
+                  <div class="icon1">
+                    <a :href="project.netlify" class="button" title="Live Demo" target="_blank"><i class="fa fa-eye"></i></a>
+                  </div>
+                  <div class="icon2">
+                     <a :href="project.gitHub" class="coding git" title="Code" target="_blank"><span class="iconify" data-icon="brandico:github"></span></a>
+                  </div>
+                  
+                  
+                  <!-- <a :href="project.gitHub" class="coding" title="github" target="_blank"><i class="fa fa-github"></i></a> -->
+                  
+                </div>
             </div>
         </div>
     </div>
+  </div>
+    
+<div v-else class="loader">
+  <SpinLoader />
 </div>
+
+
     
 </template>
 
 <script>
+import SpinLoader from './SpinLoader.vue'
+
 export default {
     name: 'Work',
+    components: {SpinLoader},
     data() {
       return {
-        projects: [
-          {
-            id:1,
-            image:"reaction-timer.jpg",
-            title: "Reaction Timer",
-            gitHub: "https://github.com/Mnangwe/Reaction_timer",
-            netlify: "https://reaction-time-aza.netlify.app",
-            description:`Vue-3 project, a game that returns time depending how fast you reacted to click on the box.`
-          },
-          {
-            id:2,
-            image:"calculator.jpg",
-            title: "Calculator",
-            gitHub: "https://github.com/Mnangwe/JS_Calculator",
-            netlify: "https://aza-calculator-pupuma.netlify.app",
-            description:`Basic Vanilla Javascript Calculator with basic Math operators.`
-          },
-          {
-            id:3,
-            image:"book-ecommerce.jpg",
-            title: "Book Store",
-            gitHub: "https://github.com/Mnangwe/Book_Store",
-            netlify: "https://book-e-commerce.netlify.app",
-            description:`A book store created with Javascript using LocalStorage to store data and perform CRUD opperations.`
-          },
-          {
-            id:4,
-            image:"project1.jpg",
-            title: "Random User Search",
-            gitHub: "https://github.com/Mnangwe/Vue_CDN-RandomUser",
-            netlify: "https://random-user-fetch-api.netlify.app",
-            description:`Vue CDN using fetch function to fetch data of a random user on an API.`
-          },
-          {
-            id:5,
-            image:"stopwatch.jpg",
-            title: "Stopwatch",
-            gitHub: "https://github.com/Mnangwe/stopwatch-freeCodeCamp",
-            netlify: "https://azabenathi-stopwatch.netlify.app/",
-            description:`Work in progress-time-project. Stopwatch created with JavaScript and HTML only, in future we will add timer and worl clock`
-          },
-          {
-            id:6,
-            image:"ageTempCalculator.jpg",
-            title: "Age & Temperature calculator",
-            gitHub: "https://github.com/Mnangwe/age-temp-calculator",
-            netlify: "https://aza-age-temp.netlify.app/",
-            description:`Work in progress. JavaScript project to calculator the age using current time and converting temperature from Celsius to Fahrenheit`
-          },
-        ]
+        projects: null
+        // projects: [
+        //   {
+        //     id:1,
+        //     image:"reaction-timer.jpg",
+        //     title: "Reaction Timer",
+        //     gitHub: "https://github.com/Mnangwe/Reaction_timer",
+        //     netlify: "https://reaction-time-aza.netlify.app",
+        //     description:`Vue-3 project, a game that returns time depending how fast you reacted to click on the box.`
+        //   },
+        //   {
+        //     id:2,
+        //     image:"calculator.jpg",
+        //     title: "Calculator",
+        //     gitHub: "https://github.com/Mnangwe/JS_Calculator",
+        //     netlify: "https://aza-calculator-pupuma.netlify.app",
+        //     description:`Basic Vanilla Javascript Calculator with basic Math operators.`
+        //   },
+        //   {
+        //     id:3,
+        //     image:"book-ecommerce.jpg",
+        //     title: "Book Store",
+        //     gitHub: "https://github.com/Mnangwe/Book_Store",
+        //     netlify: "https://book-e-commerce.netlify.app",
+        //     description:`A book store created with Javascript using LocalStorage to store data and perform CRUD opperations.`
+        //   },
+        //   {
+        //     id:4,
+        //     image:"project1.jpg",
+        //     title: "Random User Search",
+        //     gitHub: "https://github.com/Mnangwe/Vue_CDN-RandomUser",
+        //     netlify: "https://random-user-fetch-api.netlify.app",
+        //     description:`Vue CDN using fetch function to fetch data of a random user on an API.`
+        //   },
+        //   {
+        //     id:5,
+        //     image:"stopwatch.jpg",
+        //     title: "Stopwatch",
+        //     gitHub: "https://github.com/Mnangwe/stopwatch-freeCodeCamp",
+        //     netlify: "https://azabenathi-stopwatch.netlify.app/",
+        //     description:`Work in progress-time-project. Stopwatch created with JavaScript and HTML only, in future we will add timer and worl clock`
+        //   },
+        //   {
+        //     id:6,
+        //     image:"ageTempCalculator.jpg",
+        //     title: "Age & Temperature calculator",
+        //     gitHub: "https://github.com/Mnangwe/age-temp-calculator",
+        //     netlify: "https://aza-age-temp.netlify.app/",
+        //     description:`Work in progress. JavaScript project to calculator the age using current time and converting temperature from Celsius to Fahrenheit`
+        //   },
+        // ]
 
         
       }
+    },
+    mounted() {
+      fetch('https://portfolio-api-aza.herokuapp.com/projects')
+        .then(res => res.json())
+        .then(data => {
+          this.projects = data
+          console.log(data)
+          console.log(this.projects)
+          
+          })
+        .catch(err => console.log(err.message))
     }
 }
 </script>
@@ -111,10 +141,10 @@ a {
   transition: all 0.3s ease-in-out;
 }
 .card {
-  width: 280px;
-  height: 360px;
-  border-radius: 15px;
-  padding: 1.5rem;
+  width: 300px;
+  height: 200px !important;
+  border-radius: 10px;
+  padding: 15px;
   background: white;
   position: relative;
   display: flex;
@@ -122,16 +152,28 @@ a {
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   color: #000;
+  border: 6px solid #fdf9ff;
+  overflow: hidden;
+  cursor: pointer;
 }
-.card:hover {
-  transform: translateY(20px);
+
+.shadow-dark {
+  -webkit-box-shadow: 0 0 20px rgb(48 46 77 / 15%);
+  box-shadow: 0 0 20px rgb(48 46 77 / 15%);
 }
+
+.project-image img {
+  width: 100%;
+  display: block;
+}
+
 .card:hover:before {
   opacity: 1;
 }
 .card:hover .info {
   opacity: 1;
-  transform: translateY(0px);
+  /* width: 100%;
+  height: 100%; */
 }
 .card:before {
   content: "";
@@ -143,7 +185,7 @@ a {
   height: 100%;
   border-radius: 15px;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  z-index: 1;
   transition: 0.5s;
   opacity: 0;
 }
@@ -151,51 +193,109 @@ a {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: scale-down !important;
   position: absolute;
   top: 0;
   left: 0;
   border-radius: 15px;
 }
 .card .info {
-  position: relative;
-  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  padding: 30px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   color: white;
   opacity: 0;
-  transform: translateY(30px);
-  transition: 0.5s;
+  
 }
-.card .info h1 {
-  margin: 0px;
-}
-.card .info p {
-  letter-spacing: 1px;
+.card .info h4 {
   font-size: 18px;
-  margin-top: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: capitalize;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-transform: translateX(-20px);
+  transform: translateX(-20px);
+  opacity: 0;
 }
-.card .info .button, .coding{
+.card:hover .info h4 {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.icon1 .button{
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  color: red;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  right: 30px;
+  bottom: 30px;
+  transform: translateX(20px);
+  -webkit-transform: translateX(20px);
+}
+.icon2 .coding {
+  height: 30px;
+  width: 30px;
+  background-color: #ffffff;
+  color: red;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  left: 30px;
+  bottom: 30px;
+  transform: translateX(-40px);
+  -webkit-transform: translateX(-40px);
+}
+.card:hover .icon1 .button, .icon2 .coding {
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+  opacity: 1;
+}
+/* .card .info .button, .coding{
   padding: 0.6rem;
   left: 0;
   bottom: 0;
   outline: none;
   border: none;
   border-radius: 50%;
-  background: white;
-  color: black;
+  background: transparent;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.4s ease;
   margin: 2px;
+} */
+/* .button {
+  background: white;
+  color: red;
 }
 
-.card .info .button:hover {
-  background: #42b983;
-  color: white;
-}
+.coding.git:hover, .card .info .button:hover{
+  background: white;
+  color: red;
+} */
 .links {
   display: flex;
   /* justify-content: space-evenly; */
-  justify-content: end;
+  justify-content: space-between;
+  flex-direction: row-reverse;
 }
 
 </style>

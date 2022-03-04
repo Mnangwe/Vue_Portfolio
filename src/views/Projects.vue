@@ -1,5 +1,5 @@
 <template>
-  <div class="projects view">
+  <div class="projects view" :class="{viewopen: opened}">
       <div class="container">
           <div class="row" style="flex-direction: column">
               <h3 class="display-6">My Portfolio</h3>

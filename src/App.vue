@@ -1,8 +1,11 @@
 <template>
-  
-   <Sidebar />
-  
-  <router-view/>
+  <div class="main-container">
+    <Sidebar :opened="opened" :toggleMenu='toggleMenu'/>
+  </div>
+   
+  <main :class="{viewopen: opened}">
+    <router-view/>
+  </main>
 
   
   
@@ -14,10 +17,26 @@ export default {
   components: {
     // Navbar
     Sidebar
+  },
+ data(){
+    return {
+      opened: false
+    }
+  },
+  methods: {
+    toggleMenu(){
+      this.opened = !this.opened
+    }
   }
+
 }
 </script>
 <style>
+
+:root{
+  --skin: #42b983;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,9 +45,9 @@ export default {
   color: #2c3e50;
 }
 
-#nav a {
+ #nav a {
   font-weight: bold;
-  color: #fff;
+  color: #2c3e50;
   font-size: 16px;
 }
 
@@ -38,44 +57,50 @@ export default {
 
 #nav li a.router-link-active {
   color: #42b983;
-}
-html, body, .view {
+} 
+
+html, body,{
   background: #eee;
+  margin: 0;
+  line-height: 1.5;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #2c3e50;
+  font-size:16px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 .view {
-    margin: 0 0 0 280px;
+    margin-left: 280px;
     transition: all 0.3s linear; 
     height: 100vh;
     padding: 25px;
     text-align: start;
   }
-  .view h1 {
+  main{
+    transition: all 0.3s linear;
+  }
+.view h1 {
     
     padding: 60px 0 70px ;
   }
-
-  @media screen and (max-width: 1040px) {
-  .side-bar {
-    left: -230px;
-  }
-  .side-bar.active {
-    left: 0px;
+@media screen and (max-width:1200px) {
+  body {
+    line-height: 1.2;
+    font-weight: 350;
   }
   .view {
-    margin-left: 50px;
+    margin-left:0 ;
   }
-  .mobile-nav {
-    display: block;
-  }
-  .fas{
-    margin-left: 210px;
-    transform: scale(1.5);
-  }
-  .home.view {
-    padding: 220 120px !important;
-  }
-  .logo {
-    display: none;
+
+  main.viewopen {
+    margin-left: 280px;
   }
 }
+
 </style>

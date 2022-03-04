@@ -1,5 +1,5 @@
 <template>
-  <div class="about view">
+  <div class="about view" :class="{viewopen: opened}">
     <div class="container">
       <div class="row" style="flex-direction: column">
         <h3 class="display-6">About Me</h3>
@@ -52,12 +52,12 @@
                   </p>
                 </div>
             </div>
-            <div class="skills col-xs-12 col-md-6">
+               <div class="skills col-xs-12 col-md-6">
               <h5>Skills Obtained :</h5>
               <div class="skill">
-                <p class="skill me-2">MySQL</p>
+                <p class="skill me-2">Databases</p>
                 <div class="progress" style="height:16px">
-                <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><strong>65%</strong></div>
+                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><strong>65%</strong></div>
               </div>
               </div>
               <div class="skill">
@@ -73,15 +73,15 @@
               </div>
               </div>
               <div class="skill">
-                <p class="skill">Bootstrap</p>
+                <p class="skill">Python</p>
                 <div class="progress" style="height:16px">
-                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><strong>90%</strong></div>
+                <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><strong>70%</strong></div>
               </div>
               </div>
               <div class="skill">
-                <p class="skill">HTML & CSS</p>
+                <p class="skill">Vue</p>
                 <div class="progress" style="height:16px">
-                <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><strong>95%</strong> </div>
+                <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><strong>60%</strong> </div>
               </div>
               </div>
               <div class="skill"></div>
@@ -93,8 +93,8 @@
           </div>
           
           <hr>
-          <div class="row">
-            <div class="education col-md-6">
+          <div class="row resume">
+            <div class="education col-xs-12 col-lg-6 ">
               <h3>Education:</h3>
               <div class="row">
                 <div class="timeline-box">
@@ -162,7 +162,7 @@
               </div>
             </div>
 
-            <div class="experience col-md-6">
+            <div class="experience col-xs-12 col-lg-6">
               <h3>Experience:</h3>
               <div class="row">
                 <div class="timeline-box">
@@ -337,7 +337,18 @@ export default {
   }
   
 }
-
+@media screen and (max-width: 992px) {
+  .resume {
+    display: flex;
+    flex-direction: column;
+  }
+  .education, .experience {
+    width: ;
+  }
+  .container.separator {
+    display: none;
+  }
+}
   
 
 </style>

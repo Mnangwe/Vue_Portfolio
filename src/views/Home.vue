@@ -1,5 +1,5 @@
 <template>
-    <div class="home view d-flex" style="flex-direction: column">
+    <div class="home view d-flex" style="flex-direction: column" :class="{viewopen: opened}">
       <div class="context">
         <img alt="Azabenathi Pupuma" width="300" height="300" src="../assets/images/profiles/profile.jpeg" style="border-radius: 50%">
       

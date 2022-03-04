@@ -1,6 +1,6 @@
 <template>
   <!-- <h1>Contact Me</h1> -->
-  <div class="contact view">
+  <div class="contact view" :class="{viewopen: opened}">
     <div class="container">
       <div class="row d-flex" style="flex-direction: column">
         <h3 class="display-6">Contact Me</h3>

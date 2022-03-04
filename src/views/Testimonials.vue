@@ -1,5 +1,5 @@
 <template>
-  <div class="testimonial view">
+  <div class="testimonial view" :class="{viewopen: opened}">
     <div class="container">
       <div class="row d-flex" style="flex-direction: column">
         <h3 class="display-6">Testimonials</h3>
