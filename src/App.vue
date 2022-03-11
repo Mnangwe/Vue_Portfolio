@@ -1,15 +1,16 @@
 <template>
   <div class="main-container">
+    
     <Sidebar :opened="opened" :toggleMenu='toggleMenu'/>
+    
+    
+    <main class="main-content" :class="{viewopen: opened}">
+      <router-view/>
+    </main>
   </div>
-   
-  <main :class="{viewopen: opened}">
-    <router-view/>
-  </main>
 
-  
-  
 </template>
+
 <script>
 // import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
@@ -60,7 +61,6 @@ export default {
 } 
 
 html, body,{
-  background: #eee;
   margin: 0;
   line-height: 1.5;
   font-family: "Montserrat", sans-serif;
@@ -75,31 +75,93 @@ html, body,{
   text-decoration: none;
   box-sizing: border-box;
 }
-.view {
-    margin-left: 280px;
-    transition: all 0.3s linear; 
-    height: 100vh;
-    padding: 25px;
-    text-align: start;
-  }
-  main{
+main{
     transition: all 0.3s linear;
   }
-.view h1 {
-    
-    padding: 60px 0 70px ;
-  }
+section {
+  background-color: #f2f2fc;
+  min-height: 100vh;
+  display: block;
+  padding: 0 30px;
+  position: fixed;
+  left: 280px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow-x: hidden;
+  overflow-y: inherit;
+  opacity: 1;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.section-title {
+  font-family: "Rubik", sans-serif;
+  padding-left: 15px;
+  padding-right: 15px;
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-bottom: 60px;
+}
+.section-title h2 {
+  font-size: 40px;
+  color: #302e4d;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  
+}
+.section-title h2::before {
+  content: "";
+  height: 4px;
+  width: 75px;
+  position: absolute;
+  top: 100%;
+  left: 2%;
+  margin-left: -8px ;
+  margin-top: 2px;
+  background-color: var(--skin);
+}
+.section-title h2::after {
+  content: "";
+  height: 4px;
+  width: 100px;
+  position: absolute;
+  top: 100%;
+  left: 2%;
+  margin-left: -8px ;
+  margin-top: -6px;
+  background-color: var(--skin);
+}
+
+main{
+  transition: all 0.3s linear;
+}
+
+section .container {
+  padding-top: 60px;
+  padding-bottom: 70px;
+  text-align: left !important;
+}
+
+.container{
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+}
+
 @media screen and (max-width:1200px) {
   body {
     line-height: 1.2;
     font-weight: 350;
   }
-  .view {
-    margin-left:0 ;
+  section {
+    left:0 ;
   }
 
-  main.viewopen {
-    margin-left: 280px;
+  main.viewopen section{
+    left: 280px;
   }
 }
 

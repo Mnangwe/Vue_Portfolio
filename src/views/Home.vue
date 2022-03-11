@@ -1,11 +1,11 @@
 <template>
-    <div class="home view d-flex" style="flex-direction: column" :class="{viewopen: opened}">
-      <div class="context">
+    <section class="home view d-flex" style="flex-direction: column" :class="{viewopen: opened}">
+      <div class="container">
+        <div class="context">
         <img alt="Azabenathi Pupuma" width="300" height="300" src="../assets/images/profiles/profile.jpeg" style="border-radius: 50%">
       
       <h2>Azabenathi Pupuma</h2>
       <p>Full-stack Developer | Aspiring Data Scientist</p>
-      </div>
       
       <div class="social-link">
         <div class="icon-item">
@@ -70,7 +70,10 @@
 
         
       </div>
-    </div>
+      </div>
+      </div>
+      
+    </section>
 
 </template>
 
@@ -89,8 +92,6 @@ export default {
 <style scoped>
   .home {
     text-align: center;
-    padding: 220px;
-    height: 100vh;
   }
   a {
     border-radius: 50%;
@@ -100,16 +101,15 @@ export default {
     border: 3px solid #2c3e50;
     transition: all 0.3s linear; 
   }
-  .container {
-    margin: auto;
-    padding: 60px 0 70px;
-  }
+  
   .social-link {
     text-decoration: none;
     color: #2c3e50;
     display: flex;
     justify-content: center;
+    margin-top: 25px;
   }
+  
   @media screen and (max-width: 768px) {
     img {
       left: 0;
@@ -122,12 +122,13 @@ export default {
       margin-bottom: 50px;
       border: none !important;
     }
-    .home {
+  }
+    /* .home {
       display: flex;
       flex-direction: column;
       padding: 200px 10px 10px 0;
       margin: 0 0 0 50px;}
-  }
+  } */
   @media screen and (max-width: 400px) {
     svg {
       height: 25px;

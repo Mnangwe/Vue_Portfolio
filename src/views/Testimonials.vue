@@ -1,9 +1,9 @@
 <template>
-  <div class="testimonial view" :class="{viewopen: opened}">
+  <section class="testimonial view" :class="{viewopen: opened}">
     <div class="container">
-      <div class="row d-flex" style="flex-direction: column">
-        <h3 class="display-6">Testimonials</h3>
-        <div class="heading"></div>
+      <div class="row text-start section-title" style="">
+        <h2 class="">Testimonials</h2>
+        
       </div>
     <hr>
     <div class="row">
@@ -12,14 +12,17 @@
     </div>
     <hr>
     <div class="row">
-      <div class="my-people">
-      <MyTestimonials/>
+      
+      <div class="my-people" >
+        <Pagination />
+        <MyTestimonials/>
+        
     </div>
     </div>
     
     </div>
     
-  </div>
+  </section>
       
       
   
@@ -27,14 +30,11 @@
 
 <script>
 import MyTestimonials from '../components/MyTestimonials.vue'
+import Pagination from '../components/Pagination.vue'
 
 
 export default {
-  components: {
-    
-    MyTestimonials
-
-    },
+  components: {MyTestimonials, Pagination},
   data(){
     return {
 
@@ -44,11 +44,7 @@ export default {
 </script>
 
 <style scoped>
-  .container {
-  text-align: start;
-  margin: auto;
-  padding: 60px 0 70px;
-}
+ 
   img {
   
   object-fit: cover;

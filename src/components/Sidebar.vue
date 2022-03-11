@@ -165,7 +165,7 @@ export default {
   padding: 0;
 }
 .side {
-  width: 270px;
+  width: 280px;
   background-color: #fdf9ff;
   position: fixed;
   height: 100%;

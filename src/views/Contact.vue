@@ -1,10 +1,10 @@
 <template>
   <!-- <h1>Contact Me</h1> -->
-  <div class="contact view" :class="{viewopen: opened}">
+  <section class="contact view" :class="{viewopen: opened}">
     <div class="container">
-      <div class="row d-flex" style="flex-direction: column">
-        <h3 class="display-6">Contact Me</h3>
-        <div class="heading"></div>
+      <div class="row text-start section-title" style="">
+        <h2 class="">Contact Me</h2>
+        
 
       </div>
       <div class="row icon-display">
@@ -33,7 +33,7 @@
       </div>
     </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -47,11 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  text-align: center;
-  margin: auto;
-  padding: 60px 0 70px;
-}
+
 
 .icon-display{
   margin: 20px 0;

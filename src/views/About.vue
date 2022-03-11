@@ -1,9 +1,9 @@
 <template>
-  <div class="about view" :class="{viewopen: opened}">
+  <section class="about view" :class="{viewopen: opened}">
     <div class="container">
-      <div class="row" style="flex-direction: column">
-        <h3 class="display-6">About Me</h3>
-        <div class="heading"></div>
+      <div class="row text-start section-title" style="">
+        <h2 class="">About Me</h2>
+        
       </div>
     
       <div class="row">
@@ -232,7 +232,7 @@
       </div>
     </div>
     
-  </div>
+  </section>
 </template>
 
 <script>
@@ -247,11 +247,7 @@ export default {
 
 <style scoped>
 
-.container {
-  text-align: start;
-  margin: auto;
-  padding: 60px 0 70px;
-}
+
 
 
 .education, .experience {

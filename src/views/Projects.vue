@@ -1,18 +1,22 @@
 <template>
-  <div class="projects view" :class="{viewopen: opened}">
+  <section class="projects view" :class="{viewopen: opened}">
       <div class="container">
-          <div class="row" style="flex-direction: column">
-              <h3 class="display-6">My Portfolio</h3>
-            <div class="heading"></div>
+          <div class="row text-start section-title" style="">
+              <h2 class="">My Portfolio</h2>
+            
           </div>
           <hr>
           <div class="row">
+            <div class="offset">
+              
+            </div>
               <Work />
+               	
           </div>
             
       </div>
     
-    </div>
+  </section>
     
   
 </template>
@@ -29,11 +33,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  text-align: start;
-  margin: auto;
-  padding: 60px 0 70px;
-}
+
   .heading {
   width: 150px;
   height: 2px;
