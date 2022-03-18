@@ -164,5 +164,15 @@ section .container {
     left: 280px;
   }
 }
-
+@media screen and (max-width: 680px) {
+  .side {
+    z-index: 2;
+  },
+  main.viewopen section{
+    left: 0 !important;
+  }
+  section {
+    left: 0 !important;
+  }
+}
 </style>
