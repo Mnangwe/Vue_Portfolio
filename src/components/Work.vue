@@ -2,7 +2,7 @@
 <div class="row" v-if="projects">
   
     <div class="cards-wrapper col-sm-6 col-md-4" v-for="project in projects" :key="project.id">
-        <div class="card shadow-dark" style=" margin: 5px; text-align: left;">
+        <div class="card bg-dark shadow-dark" style=" margin: 5px; text-align: left;">
             <div class="project-image">
               <img :src="project.image" class="card-img-top" :alt="project.title">
             </div>
