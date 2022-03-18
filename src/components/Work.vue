@@ -1,7 +1,7 @@
 <template>
-<div class="row" v-if="projects">
+<div class="container" v-if="projects">
   
-    <div class="cards-wrapper col-sm-6 col-md-4" v-for="project in projects" :key="project.id">
+    <div class="cards-wrapper" v-for="project in projects" :key="project.id">
         <div class="card bg-dark shadow-dark" style=" margin: 5px; text-align: left;">
             <div class="project-image">
               <img :src="project.image" class="card-img-top" :alt="project.title">
@@ -130,6 +130,10 @@ export default {
 }
 h4.title {
     border-bottom: 2px solid #3c3163;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
 a {
   color: inherit;
@@ -268,32 +272,8 @@ a {
   transform: translateX(0px);
   opacity: 1;
 }
-/* .card .info .button, .coding{
-  padding: 0.6rem;
-  left: 0;
-  bottom: 0;
-  outline: none;
-  border: none;
-  border-radius: 50%;
-  background: transparent;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.4s ease;
-  margin: 2px;
-} */
-/* .button {
-  background: white;
-  color: red;
-}
-
-.coding.git:hover, .card .info .button:hover{
-  background: white;
-  color: red;
-} */
 .links {
   display: flex;
-  /* justify-content: space-evenly; */
   justify-content: space-between;
   flex-direction: row-reverse;
 }

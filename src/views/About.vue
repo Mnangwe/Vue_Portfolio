@@ -275,11 +275,11 @@ export default {
 }
 .timeline {
   background-color: #fdf9ff;
-    padding: 30px 15px;
-    border: 1px solid #d4d4e3;
-    border-radius: 10px;
-    width: 100%;
-    position: relative;
+  padding: 30px 15px;
+  border: 1px solid #d4d4e3;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
 }
 .timeline-item {
   position: relative;
@@ -343,6 +343,9 @@ export default {
   }
   .container.separator {
     display: none;
+  }
+  .row {
+    padding: 0px !important;
   }
 }
   
